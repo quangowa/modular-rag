@@ -1,13 +1,7 @@
-hypernodes
-sf-hamilton[visualization]
 hypster
-scikit-learn
-openpyxl
-mlflow
-streamlit
-streamlit-flow-component
 
 ipywidgets
+ipykernel
 
 haystack-ai
 qdrant-haystack

@@ -1,5 +1,4 @@
-/.DS_Store
-/conf
-/data
-/notebooks
-/src
+*.DS_Store
+*.pyc
+.env
+configs/
