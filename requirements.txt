@@ -10,3 +10,5 @@ anthropic-haystack
 jina-haystack
 
 pypdf
+
+transformers[torch,sentencepiece]
