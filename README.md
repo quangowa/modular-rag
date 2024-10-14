@@ -1,7 +1,7 @@
 # Modular RAG with Haystack and Hypster
 
 <p align="center">
-  <img src="assets/modular-rag.png" alt="Modular RAG" width="90%">
+  <img src="assets/modular-rag.png" alt="Modular RAG" width="100%">
 </p>
 
 This project implements the concepts described in the paper: [Modular RAG: Transforming RAG Systems into LEGO-like Reconfigurable Frameworks](https://arxiv.org/abs/2407.21059) by Yunfan Gao et al. 
