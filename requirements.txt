@@ -12,3 +12,5 @@ jina-haystack
 pypdf
 
 transformers[torch,sentencepiece]
+python-dotenv
+jupyterlab

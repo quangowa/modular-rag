@@ -22,20 +22,21 @@ For a detailed walkthrough, refer to this [Medium article](https://medium.com/p/
 4. [Contributing](#contributing)
 5. [License](#license)
 
-## Installation
+## Installation and Usage
 
 This project supports multiple package managers. Choose the method that best suits your environment:
 
-### Poetry
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/gilad-rubin/modular-rag.git
+   cd modular-rag
+
+2. Install dependencies using one of the following methods:
+
+### uv
 
 ```bash
-poetry install
-```
-
-### pip
-
-```bash
-pip install -r requirements.txt
+uv run --with jupyter jupyter lab
 ```
 
 ### Conda
@@ -44,31 +45,25 @@ pip install -r requirements.txt
 conda env create -n modular-rag python=3.10 -y
 conda activate modular-rag
 pip install -r requirements.txt
+
+jupyter lab
 ```
 
-## Usage
+### pip
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/gilad-rubin/modular-rag.git
-   cd modular-rag
-   ```
+```bash
+pip install -r requirements.txt
+jupyter lab
+```
 
-2. Install dependencies using your preferred method from the [Installation](#installation) section.
-
-3. Launch Jupyter Lab:
-   ```bash
-   jupyter lab
-   ```
-
-4. Open the main notebook and follow the instructions to experiment with different RAG configurations.
+3. Open the main notebook and follow the instructions to experiment with different RAG configurations.
 
 ## Code Examples
 
 Here's a basic example of how to use the modular RAG system:
 
 ```python
-results = rag_config(
+results = modular_rag(
     selections={
         "indexing.enrich_doc_w_llm": True,
         "indexing.llm.model": "gpt-4o-mini",
@@ -82,14 +77,12 @@ results = rag_config(
 )
 indexing_pipeline = results["indexing_pipeline"]
 indexing_pipeline.warm_up()
-
-file_paths = ["data/raw/modular_rag.pdf", "data/raw/enhancing_rag.pdf"]
+file_paths = ["data/raw/modular_rag.pdf"]
 for file_path in file_paths:  # this can be parallelized
     indexing_pipeline.run({"loader": {"sources": [file_path]}})
-
 query = "What are the 6 main modules of the modular RAG framework?"
 
 pipeline = results["pipeline"]
 pipeline.warm_up()
 response = pipeline.run({"query": {"text": query}}, include_outputs_from=["prompt_builder", "docs_for_generation"])
-response["llm"]
+print(response["llm"]["replies"][0])
