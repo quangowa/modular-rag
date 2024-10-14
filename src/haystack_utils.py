@@ -1,6 +1,6 @@
 from typing import Any, Dict, List
 
-from haystack import Document, component
+from haystack import Document, Pipeline, component
 
 
 @component
@@ -13,6 +13,7 @@ class PassThroughDocuments:
     def run(self, documents: List[Document]):
         return {"documents": documents}
 
+
 @component
 class DocumentToList:
     """
@@ -21,7 +22,8 @@ class DocumentToList:
 
     @component.output_types(document=Document, documents=List[Document])
     def run(self, document: Document):
-        return {"document" : document, "documents": [document]}
+        return {"document": document, "documents": [document]}
+
 
 @component
 class PassThroughText:
