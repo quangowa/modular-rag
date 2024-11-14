@@ -64,7 +64,7 @@ Here's a basic example of how to use the modular RAG system:
 
 ```python
 results = modular_rag(
-    selections={
+    values={
         "indexing.enrich_doc_w_llm": True,
         "indexing.llm.model": "gpt-4o-mini",
         "document_store_type": "qdrant",
@@ -72,8 +72,9 @@ results = modular_rag(
         "embedder_type": "fastembed",
         "reranker.model": "tiny-bert-v2",
         "response.llm.model": "haiku",
+        "indexing.splitter.split_length": 6,
+        "reranker.top_k": 3
     },
-    overrides={"indexing.splitter.split_length": 6, "reranker.top_k": 3},
 )
 indexing_pipeline = results["indexing_pipeline"]
 indexing_pipeline.warm_up()
