@@ -1,12 +1,12 @@
-hypster
+hypster[jupyter]
 
 ipywidgets
 ipykernel
 
 haystack-ai
 qdrant-haystack
+fastembed
 fastembed-haystack
-anthropic-haystack
 jina-haystack
 
 pypdf
