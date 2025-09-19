@@ -58,6 +58,21 @@ jupyter lab
 
 3. Open the main notebook and follow the instructions to experiment with different RAG configurations.
 
+
+### Running local Ollama models
+
+Local LLMs served by [Ollama](https://ollama.com/) are supported alongside the existing OpenAI and Anthropic integrations.
+
+1. Install the optional Haystack integration package:
+
+   ```bash
+   pip install ollama-haystack
+   ```
+
+2. Ensure the Ollama daemon is running on your machine (for example `ollama serve`) and that the desired models (such as `llama3`, `llama3.1`, or `mistral`) are available.
+3. In the notebooks select the `ollama` provider when configuring an LLM. The configuration lets you override the base URL (default `http://localhost:11434`) or you can set the `OLLAMA_BASE_URL` environment variable before launching Jupyter.
+4. The quick-start notebook (`1_hardcoded.ipynb`) exposes an `llm_backend` toggle so you can flip between OpenAI and Ollama when you want to exercise the local path.
+
 ## Code Examples
 
 Here's a basic example of how to use the modular RAG system:
